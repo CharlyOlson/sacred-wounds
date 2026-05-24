@@ -84,3 +84,30 @@ body{background:var(--bg);color:var(--text);font-family:var(--fb);font-size:16px
 .nav-links{gap:1rem}
 .hero,.gallery,.needed,.submit,.about{padding:5rem 1.25rem}
 }
+
+
+/* ── SCROLL FADE-IN ── */
+.fade-in{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* ── HERO GLOW PULSE ── */
+@keyframes pulse-glow{0%,100%{box-shadow:0 0 0px rgba(184,28,28,0)}50%{box-shadow:0 0 80px rgba(184,28,28,0.12)}}
+.hero{animation:pulse-glow 5s ease-in-out infinite}
+
+/* ── CARD HOVER LIFT ── */
+.flip-card:hover{transform:translateY(-4px);transition:transform .3s ease}
+
+/* ── FOOTER UPGRADE ── */
+.footer{padding:2.5rem 2.5rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border);color:var(--muted);font-size:.8rem;letter-spacing:.06em;flex-wrap:wrap;gap:1rem}
+.footer a{color:var(--gold);text-decoration:none;transition:opacity .2s}
+.footer a:hover{opacity:.75}
+
+/* ── BLOCKQUOTE RED GLOW ── */
+.about-inner blockquote{text-shadow:0 0 30px rgba(184,28,28,0.15)}
+
+/* ── FILTER BUTTON ACTIVE UNDERLINE ── */
+.filter.active{border-color:var(--red);color:var(--text);box-shadow:0 2px 0 var(--red)}
+
+/* ── NEEDED CARD HOVER ── */
+.needed-card{transition:border-color .25s,transform .25s}
+.needed-card:hover{border-left-color:var(--gold);transform:translateX(4px)}
