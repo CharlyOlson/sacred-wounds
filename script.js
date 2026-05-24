@@ -425,13 +425,9 @@ function renderConfessionWall() {
         <div class="flip-card-back">
           <p class="card-meaning">${card.back}</p>
           <div class="card-needed">
-            <span class="needed-label">What you needed to hear:</span>
-            <p>${card.needed}</p>
+            <span class="needed-label">The Plain, Unbiased Truth</span>            <p>${card.needed}</p>
           </div>
         </div>
-      </div>
-    </div>
-  `).join('');
 }
 
 function filterConfessionCards(category) {
