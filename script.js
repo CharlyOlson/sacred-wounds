@@ -429,7 +429,9 @@ function renderConfessionWall() {
             <span class="needed-label">The Plain, Unbiased Truth</span>            <p>${card.needed}</p>
           </div>
         </div>
-}
+      </div>
+    </div>
+  `).join('');
 
 function filterConfessionCards(category) {
   currentFilter = category;
