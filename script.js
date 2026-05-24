@@ -414,6 +414,7 @@ function renderConfessionWall() {
 
   const filtered = currentFilter === 'all' 
     ? CONFESSION_CARDS 
+      console.log('Confession Wall - wallGrid found:', wallGrid);  console.log('CONFESSION_CARDS:', CONFESSION_CARDS);
     : CONFESSION_CARDS.filter(card => card.category === currentFilter);
 
   wallGrid.innerHTML = filtered.map(card => `
