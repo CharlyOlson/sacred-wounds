@@ -430,5 +430,13 @@ function filterConfessionCards(category) {
   });
   event.target.classList.add('filter-active');
 }
+
+    // ===========================
+// GALLERY PURCHASE INTEGRATION
+// ===========================
+function openProductModalFromGallery(productId) {
+  // Opens the product modal from gallery purchase buttons
+  openProductModal(productId);
+}
   });
 }
