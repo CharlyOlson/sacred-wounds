@@ -44,6 +44,20 @@ const PRODUCTS = [
   }
 ];
 
+
+// ===========================
+// CONFESSION WALL CARDS DATA
+// ===========================
+
+const CONFESSION_CARDS = [
+  {
+    id: 1,
+    category: 'abuse',
+    front: '"We forgive you, but there will be consequences."',
+    back: 'We are choosing our reputation over your safety.',
+    needed: 'The Plain, Unbiased Truth'
+  }
+];
 // ===========================
 // CART STATE
 // ===========================
