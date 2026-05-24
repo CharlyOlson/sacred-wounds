@@ -76,5 +76,14 @@ document.getElementById('submitForm').addEventListener('submit',function(e){
  document.getElementById('gallery').scrollIntoView({behavior:'smooth'});
 });
 
+
+// ── SCROLL FADE-IN OBSERVER ──
+function initFadeIn(){
+const obs=new IntersectionObserver((entries)=>{
+entries.forEach(el=>{if(el.isIntersecting){el.target.classList.add('visible');obs.unobserve(el.target);}});
+},{threshold:0.1});
+document.querySelectorAll('.flip-card,.needed-card,.submit-inner,.about-inner,.section-header').forEach(el=>{el.classList.add('fade-in');obs.observe(el);});
+}
 renderCards();
 renderNeeded();
+initFadeIn();
