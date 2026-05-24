@@ -106,7 +106,7 @@ const grid=document.getElementById('storeGrid');
 if(!grid)return;
 const filtered=activeStore==='all'?PRODUCTS:PRODUCTS.filter(p=>p.type===activeStore);
 grid.innerHTML=filtered.map(p=>`
-<div class="store-card fade-in" onclick="openModal(${p.id})" style="border-top:3px solid ${p.color}">
+<div class="store-card" onclick="openModal(${p.id})" style="border-top:3px solid ${p.color}">
 <div class="store-card-img" style="background:${p.bg}">${p.emoji}</div>
 <div class="store-card-body">
 <p class="store-card-type">${p.type}</p>
