@@ -171,7 +171,6 @@ renderStore();
 });
 
 renderStore();
-}
 renderCards();
 renderNeeded();
 initFadeIn();
