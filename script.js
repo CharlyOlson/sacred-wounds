@@ -80,6 +80,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initialize cart UI
   updateCartUI();
+  
+  // Initialize confession wall
+  const wallGrid = document.querySelector('.card-grid');
+  if (wallGrid) {
+    renderConfessionWall();
+  }
 
   // Setup event listeners
   setupEventListeners();
@@ -320,5 +326,109 @@ function setupEventListeners() {
         modal.style.display = 'none';
       });
     }
+
+    // ===========================
+// CONFESSION WALL CARDS DATA
+// ===========================
+const CONFESSION_CARDS = [
+  {
+    id: 1,
+    category: 'abuse',
+    front: '"We forgive you, but there will be consequences."',
+    back: 'We are choosing our reputation over your safety.',
+    needed: '"We believe you. We are sorry. You are safe here."'
+  },
+  {
+    id: 2,
+    category: 'exclusion',
+    front: '"Love the sinner, hate the sin."',
+    back: 'We love you conditionally—only when you hide who you are.',
+    needed: '"You are loved exactly as you are. No conditions."'
+  },
+  {
+    id: 3,
+    category: 'shame',
+    front: '"Your struggle shows a lack of faith."',
+    back: 'Your humanity is inconvenient to our theology.',
+    needed: '"Your pain is valid. Faith does not erase suffering."'
+  },
+  {
+    id: 4,
+    category: 'doubt',
+    front: '"If you just prayed harder, you\'d understand."',
+    back: 'Your questions threaten our certainty.',
+    needed: '"Doubt is part of the journey. Ask your questions."'
+  },
+  {
+    id: 5,
+    category: 'money',
+    front: '"God wants you to be prosperous."',
+    back: 'We profit when you believe faith is transactional.',
+    needed: '"Your worth is not determined by your wealth."'
+  },
+  {
+    id: 6,
+    category: 'abuse',
+    front: '"Forgive and move on."',
+    back: 'Your trauma is inconvenient. Silence is easier than justice.',
+    needed: '"Healing takes time. You deserve justice and support."'
+  },
+  {
+    id: 7,
+    category: 'shame',
+    front: '"Purity is the highest virtue."',
+    back: 'We control you through shame about your body.',
+    needed: '"Your body is yours. Shame has no place here."'
+  },
+  {
+    id: 8,
+    category: 'exclusion',
+    front: '"We welcome everyone... but."',
+    back: 'Our doors are open only to those who conform.',
+    needed: '"Everyone means everyone. No exceptions."'
+  }
+];
+
+// ===========================
+// CONFESSION WALL RENDERING
+// ===========================
+let currentFilter = 'all';
+
+function renderConfessionWall() {
+  const wallGrid = document.querySelector('.card-grid');
+  if (!wallGrid) return;
+
+  const filtered = currentFilter === 'all' 
+    ? CONFESSION_CARDS 
+    : CONFESSION_CARDS.filter(card => card.category === currentFilter);
+
+  wallGrid.innerHTML = filtered.map(card => `
+    <div class="flip-card" data-category="${card.category}">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <p class="card-quote">${card.front}</p>
+        </div>
+        <div class="flip-card-back">
+          <p class="card-meaning">${card.back}</p>
+          <div class="card-needed">
+            <span class="needed-label">What you needed to hear:</span>
+            <p>${card.needed}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function filterConfessionCards(category) {
+  currentFilter = category;
+  renderConfessionWall();
+  
+  // Update active button
+  document.querySelectorAll('.filter button').forEach(btn => {
+    btn.classList.remove('filter-active');
+  });
+  event.target.classList.add('filter-active');
+}
   });
 }
