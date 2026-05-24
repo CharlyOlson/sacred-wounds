@@ -96,11 +96,11 @@ document.addEventListener('DOMContentLoaded', () => {
   updateCartUI();
   
   // Initialize confession wall
-  const wallGrid = document.querySelector('.card-grid');
+  const wallGrid = document.getElementById('cardGrid');
   if (wallGrid) {
     renderConfessionWall();
   }
-
+getElementById('cardGrid');
   // Setup event listeners
   setupEventListeners();
 });
@@ -409,7 +409,7 @@ const CONFESSION_CARDS = [
 let currentFilter = 'all';
 
 function renderConfessionWall() {
-  const wallGrid = document.querySelector('.card-grid');
+  const wallGrid = document.getElementById('cardGrid');
   if (!wallGrid) return;
 
   const filtered = currentFilter === 'all' 
