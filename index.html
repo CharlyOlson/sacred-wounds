@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Sacred Wounds</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<nav class="nav">
+  <span class="nav-brand">Sacred Wounds</span>
+  <div class="nav-links">
+    <a href="#gallery">Gallery</a>
+    <a href="#submit">Submit</a>
+    <a href="#about">About</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">Piece III</p>
+    <h1>We Forgive You,<br/><em>But&hellip;</em></h1>
+    <p class="hero-sub">What the church said out loud.<br/>What it meant underneath.</p>
+    <a href="#gallery" class="cta-btn">Enter the Wall</a>
+  </div>
+  <div class="scroll-hint">scroll &darr;</div>
+</section>
+
+<section class="gallery" id="gallery">
+  <div class="section-header">
+    <p class="label">The Confession Wall</p>
+    <h2>Hover or tap each card to reveal what was underneath.</h2>
+  </div>
+  <div class="filter-row">
+    <button class="filter active" data-cat="all">All</button>
+    <button class="filter" data-cat="abuse">Abuse &amp; Cover-Up</button>
+    <button class="filter" data-cat="exclusion">Exclusion</button>
+    <button class="filter" data-cat="shame">Shame &amp; Purity</button>
+    <button class="filter" data-cat="doubt">Doubt &amp; Questions</button>
+    <button class="filter" data-cat="money">Money &amp; Power</button>
+  </div>
+  <div class="card-grid" id="cardGrid"></div>
+</section>
+
+<section class="needed" id="needed">
+  <div class="needed-inner">
+    <p class="label">What You Needed to Hear</p>
+    <h2>A different kind of confession.</h2>
+    <div class="needed-grid" id="neededGrid"></div>
+  </div>
+</section>
+
+<section class="submit" id="submit">
+  <div class="submit-inner">
+    <p class="label">Add Your Voice</p>
+    <h2>What did they say?<br/>What did you need instead?</h2>
+    <p class="submit-note">Anonymous. No account needed.</p>
+    <form id="submitForm">
+      <div class="fg">
+        <label>What they said</label>
+        <textarea name="theySaid" rows="3" placeholder="&quot;We forgive you, but there will be consequences.&quot;"></textarea>
+      </div>
+      <div class="fg">
+        <label>What it really meant</label>
+        <textarea name="theyMeant" rows="3" placeholder="We are choosing our reputation over your safety."></textarea>
+      </div>
+      <div class="fg">
+        <label>What you needed to hear</label>
+        <textarea name="needed" rows="3" placeholder="&quot;We believe you. We are sorry. You are safe here.&quot;"></textarea>
+      </div>
+      <div class="fg">
+        <label>Category</label>
+        <select name="category">
+          <option value="abuse">Abuse &amp; Cover-Up</option>
+          <option value="exclusion">Exclusion</option>
+          <option value="shame">Shame &amp; Purity</option>
+          <option value="doubt">Doubt &amp; Questions</option>
+          <option value="money">Money &amp; Power</option>
+        </select>
+      </div>
+      <button type="submit" class="submit-btn">Add to the Wall</button>
+    </form>
+    <p class="form-success" id="formSuccess">Your voice has been added. Thank you.</p>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="about-inner">
+    <p class="label">About This Work</p>
+    <h2>This is not an attack on faith.<br/>It is an autopsy of language.</h2>
+    <p>The phrases collected here were spoken inside sanctuaries, written in letters, delivered from pulpits. They were framed as grace. Many caused measurable, lasting harm to the abused, the questioning, the grieving, the different, the poor.</p>
+    <p>This piece does not argue that God does not exist. It argues that words wielded as weapons inside spaces of trust carry a specific and serious weight &mdash; and that naming them clearly is the first act of repair.</p>
+    <blockquote>&#8220;The most dangerous phrases are the ones that sound like love.&#8221;</blockquote>
+  </div>
+</section>
+
+<footer class="footer">
+  <span>Sacred Wounds &copy; 2026</span>
+  <span>Built to bear witness.</span>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
