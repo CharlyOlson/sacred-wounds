@@ -40,16 +40,22 @@
     <h2>Hover or tap each card to reveal what was underneath.</h2>
   </div>
   <div class="filter-row">
-    <button class="filter active" data-cat="all">All</button>
-    <button class="filter" data-cat="abuse">Abuse &amp; Cover-Up</button>
-    <button class="filter" data-cat="exclusion">Exclusion</button>
-    <button class="filter" data-cat="shame">Shame &amp; Purity</button>
-    <button class="filter" data-cat="doubt">Doubt &amp; Questions</button>
-    <button class="filter" data-cat="money">Money &amp; Power</button>
+    <button class="filter active" data-cat="all">All</butto onclick="filterConfessionCards('all')"n>
+    <button class="filter" data-cat="abuse">Abuse &amp; Cover-Up</butto onclick="filterConfessionCards('abuse')"n>
+    <button class="filter" data-cat="exclusion">Exclusion</button onclick="filterConfessionCards('exclusion')">
+    <button class="filter" data-cat="shame">Shame &amp; Purity</button onclick="filterConfessionCards('shame')">
+    <button class="filter" data-cat="doubt">Doubt &amp; Questions</button onclick="filterConfessionCards('doubt')">
+    <button class="filter" data-cat="money">Money &amp; Power</button onclick="filterConfessionCards('money')">
     
       <!-- Gallery Artwork Pieces -->
       <div class="artworks-grid">
         <!-- Piece 1: Name It and Claim It -->
+            </div>
+
+    <!-- Confession Wall Cards Grid -->
+    <div class="card-grid"></div>
+
+    <!-- Gallery Artwork Pieces -->
         <article class="artwork-piece" id="piece-name-it">
           <div class="artwork-image">
             <img src="https://via.placeholder.com/800x1000/8b0000/ffffff?text=Name+It+and+Claim+It" alt="Name It and Claim It" />
