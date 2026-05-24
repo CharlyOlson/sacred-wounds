@@ -440,3 +440,48 @@ function openProductModalFromGallery(productId) {
 }
   });
 }
+
+
+// ===========================
+// INITIALIZATION
+// ===========================
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Render confession wall on load
+  renderConfessionWall();
+  
+  // Render store on load
+  renderStore();
+  
+  // Initialize cart display
+  renderCartModal();
+});
+
+
+// ===========================
+// STORE FILTER FUNCTION
+// ===========================
+
+function filterStore(category) {
+  const storeGrid = document.getElementById('store-grid');
+  if (!storeGrid) return;
+  
+  const filtered = category === 'all' 
+    ? PRODUCTS 
+    : PRODUCTS.filter(product => product.category === category);
+  
+  storeGrid.innerHTML = filtered.map(product => `
+    <div class="product-card" data-category="${product.category}">
+      <img src="${product.image}" alt="${product.title}" />
+      <h3>${product.title}</h3>
+      <p class="product-price">$${product.price.toFixed(2)}</p>
+      <button class="btn-remove" onclick="openProductModal(${product.id})">View Details</button>
+    </div>
+  `).join('');
+  
+  // Update active button
+  document.querySelectorAll('.store .filter button').forEach(btn => {
+    btn.classList.remove('filter-active');
+  });
+  event.target.classList.add('filter-active');
+}
