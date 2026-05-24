@@ -83,6 +83,94 @@ const obs=new IntersectionObserver((entries)=>{
 entries.forEach(el=>{if(el.isIntersecting){el.target.classList.add('visible');obs.unobserve(el.target);}});
 },{threshold:0.1});
 document.querySelectorAll('.flip-card,.needed-card,.submit-inner,.about-inner,.section-header').forEach(el=>{el.classList.add('fade-in');obs.observe(el);});
+
+// ── STORE DATA ──
+const PRODUCTS=[
+{id:1,type:'print',title:'Name It and Claim It',desc:'A luminous altar of golden credit cards and offering plates. Archival giclée on matte cotton rag.',size:'18 × 24 in | Edition of 50',price:'$85',color:'#C9A84C',emoji:'✨💳',bg:'#1a1500'},
+{id:2,type:'print',title:'Love the Sinner',desc:'Three-panel portrait series. Translucent text strips crossing bodies in the shape of a cross. Rich charcoal and beige.',size:'11 × 17 in each | Open edition',price:'$45 each / $110 set',color:'#B81C1C',emoji:'✝️🧑',bg:'#1a0a0a'},
+{id:3,type:'poster',title:'We Forgive You, But…',desc:'The phrase in bold Playfair Display, the subtext bleeding through in red beneath it. Stark, minimal, unforgettable.',size:'24 × 36 in | Open edition',price:'$35',color:'#F0EDE8',emoji:'📜🩸',bg:'#0d0d0d'},
+{id:4,type:'poster',title:'Sunday Marquee No. 1',desc:'Church sign marquee in neon dusk palette. "God’s math is bad at subtraction." Screen-printed on heavyweight stock.',size:'18 × 24 in | Edition of 75',price:'$40',color:'#1E3A8A',emoji:'🚧✨',bg:'#0a0f1a'},
+{id:5,type:'digital',title:'Confession Wall — Full Set',desc:'High-res digital files of all 10 confession card designs. Print at home or at a local print shop. Instant download.',size:'3000 × 4200 px each | Digital',price:'$25',color:'#888880',emoji:'🖥️📥',bg:'#111111'},
+{id:6,type:'digital',title:'Sacred Wounds Zine — PDF',desc:'12-page editorial zine featuring all 5 pieces, artist notes, source phrases, and reader submissions. Print-ready PDF.',size:'8.5 × 11 in | 12 pages | Digital',price:'$12',color:'#C9A84C',emoji:'📓🔥',bg:'#141400'},
+{id:7,type:'apparel',title:'"Autopsy of Language" Tee',desc:'Heavyweight 100% cotton. Front: project manifesto in small Inter type. Back: "Sacred Wounds" in large Playfair Display.',size:'Unisex S–XXL | Black or Charcoal',price:'$38',color:'#F0EDE8',emoji:'👕✒️',bg:'#141414'},
+{id:8,type:'apparel',title:'"We Forgive You" Tote',desc:'Natural canvas heavyweight tote. The phrase on front, bleeding red subtext on back. Hand-screened, limited run.',size:'15 × 16 in | Natural canvas',price:'$28',color:'#B81C1C',emoji:'🛍️🟥',bg:'#1a0a0a'},
+{id:9,type:'print',title:'Holier Than Thou',desc:'Mirrored baptismal font with purity culture phrases shredded at the base. Photo documentation of the sculpture.',size:'16 × 20 in | Edition of 30',price:'$95',color:'#1E3A8A',emoji:'🔮🪩',bg:'#0a0f1a'},
+{id:10,type:'poster',title:'The Offering Plate',desc:'A tithe envelope filled with the receipts of spiritual debt. Minimal, devastating. Gold foil stamp on black.',size:'11 × 17 in | Edition of 100',price:'$42',color:'#C9A84C',emoji:'🧧💰',bg:'#141400'}
+];
+
+let cart=[];
+let activeStore='all';
+
+function renderStore(){
+const grid=document.getElementById('storeGrid');
+if(!grid)return;
+const filtered=activeStore==='all'?PRODUCTS:PRODUCTS.filter(p=>p.type===activeStore);
+grid.innerHTML=filtered.map(p=>`
+<div class="store-card fade-in" onclick="openModal(${p.id})" style="border-top:3px solid ${p.color}">
+<div class="store-card-img" style="background:${p.bg}">${p.emoji}</div>
+<div class="store-card-body">
+<p class="store-card-type">${p.type}</p>
+<h3 class="store-card-title">${p.title}</h3>
+<p class="store-card-price">From <span>${p.price}</span></p>
+</div>
+</div>`).join('');
+if(typeof initFadeIn==='function')initFadeIn();
+}
+
+function openModal(id){
+const p=PRODUCTS.find(x=>x.id===id);
+if(!p)return;
+document.getElementById('modalImg').textContent=p.emoji;
+document.getElementById('modalImg').style.background=p.bg;
+document.getElementById('modalCat').textContent=p.type;
+document.getElementById('modalTitle').textContent=p.title;
+document.getElementById('modalDesc').textContent=p.desc;
+document.getElementById('modalSize').textContent=p.size;
+document.getElementById('modalPrice').textContent=p.price;
+document.getElementById('modalBuy').onclick=()=>addToCart(p);
+document.getElementById('storeModal').classList.add('open');
+document.body.style.overflow='hidden';
+}
+
+function closeModal(){
+document.getElementById('storeModal').classList.remove('open');
+document.body.style.overflow='';
+}
+
+function addToCart(p){
+cart.push(p);
+closeModal();
+updateCart();
+}
+
+function updateCart(){
+const bar=document.getElementById('cartBar');
+const count=document.getElementById('cartCount');
+if(cart.length>0){
+bar.classList.add('visible');
+const total=cart.reduce((s,p)=>s+parseFloat(p.price.replace(/[^0-9.]/g,'')),0);
+count.textContent=`${cart.length} item${cart.length>1?'s':''} — $${total.toFixed(2)}`;
+}else{bar.classList.remove('visible');}
+}
+
+document.getElementById('modalClose').addEventListener('click',closeModal);
+document.getElementById('storeModal').addEventListener('click',function(e){if(e.target===this)closeModal();});
+
+document.getElementById('cartCheckout').addEventListener('click',()=>{
+const items=cart.map(p=>`${p.title} (${p.price})`).join(', ');
+window.location.href=`mailto:sacredwoundsart@gmail.com?subject=Order from Sacred Wounds&body=I would like to order:%0A${encodeURIComponent(items)}%0A%0AName:%0AShipping address:%0ANotes:`;
+});
+
+document.querySelectorAll('.store-filter').forEach(btn=>{
+btn.addEventListener('click',()=>{
+document.querySelectorAll('.store-filter').forEach(b=>b.classList.remove('active'));
+btn.classList.add('active');
+activeStore=btn.dataset.type;
+renderStore();
+});
+});
+
+renderStore();
 }
 renderCards();
 renderNeeded();
