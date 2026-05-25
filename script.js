@@ -421,7 +421,7 @@ function renderConfessionWall() {
       <div class="flip-card-inner">
         <div class="flip-card-front">
           <p class="card-quote">${card.front}</p>
-        </div>
+          </div>
         <div class="flip-card-back">
           <p class="card-meaning">${card.back}</p>
           <div class="card-needed">
