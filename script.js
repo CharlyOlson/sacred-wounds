@@ -409,6 +409,9 @@ const CONFESSION_CARDS = [
 let currentFilter = 'all';
 
 function renderConfessionWall() {
+    console.log('🔥 renderConfessionWall CALLED');
+  console.log('cardGrid element:', document.getElementById('cardGrid'));
+  console.log('CONFESSION_CARDS:', CONFESSION_CARDS);
   const wallGrid = document.getElementById('cardGrid');
   if (!wallGrid) return;
 
