@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery - Sacred Wounds</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300,400,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+  <nav class="nav">
+    <span class="nav-brand">Harlots Heathenry & Hermetic Apothecary</span>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="submit.html">Submit</a>
+      <a href="about.html">About</a>
+      <a href="store.html">Store</a>
+      <button class="cart-icon" onclick="openCart()" aria-label="Shopping cart">
+        🛒 <span id="cart-count" class="cart-badge">0</span>
+      </button>
+      <button id="login-btn" class="btn-secondary" onclick="openLoginModal()">Login</button>
+      <div id="user-info" style="display: none;"></div>
+    </div>
+  </nav>
+
+  <section class="gallery" id="gallery">
+    <div class="label">THE CONFESSION WALL</div>
+    <h2>Hover or tap each card to reveal what was underneath.</h2>
+    <div class="filter">
+      <button class="filter-btn active" onclick="filterConfessionCards('all', this)">All</button>
+      <button class="filter-btn" onclick="filterConfessionCards('abuse', this)">Abuse</button>
+      <button class="filter-btn" onclick="filterConfessionCards('exclusion', this)">Exclusion</button>
+      <button class="filter-btn" onclick="filterConfessionCards('shame', this)">Shame</button>
+      <button class="filter-btn" onclick="filterConfessionCards('doubt', this)">Doubt</button>
+      <button class="filter-btn" onclick="filterConfessionCards('money', this)">Money</button>
+    </div>
+    <div id="cardGrid" class="card-grid"></div>
+  </section>
+
+  <footer>
+    <span>Sacred Wounds © 2026</span>
+    <span>Built to bear witness.</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
