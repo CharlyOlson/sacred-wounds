@@ -306,11 +306,10 @@ body {
      opacity: 0;
   border: 1px solid var(--border);
   border-left: 3px solid var(--red);
-  transform: rotateY(180deg);
-
+  
 
 .flip-card:hover .flip-front {
-     opacity: 0;
+     
    }
 
    .flip-card:hover .flip-back {
