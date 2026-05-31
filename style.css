@@ -305,6 +305,7 @@ body {
 
 .flip-back {
   background: var(--bg);
+     opacity: 0;
 
    
    .flip-card:hover .flip-card-back {
