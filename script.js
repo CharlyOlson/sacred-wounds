@@ -13,40 +13,35 @@ const PRODUCTS = [
     title: 'Name It and Claim It',
     category: 'print',
     price: 45.0,
-    image: 'https://via.placeholder.com/400x500/8b0000/ffffff?text=Name+It+and+Claim+It',
-    description: 'A critique of prosperity gospel through experimental typography and sermon excerpts.'
+    image: 'images/name-it-claim-it.jpg',    description: 'A critique of prosperity gospel through experimental typography and sermon excerpts.'
   },
   {
     id: 2,
     title: 'Love the Sinner',
     category: 'print',
     price: 45.0,
-    image: 'https://via.placeholder.com/400x500/4a0e4e/ffffff?text=Love+the+Sinner',
-    description: 'Examining conditional love through deconstructed religious imagery.'
+    image: 'images/love-the-sinner.jpg',    description: 'Examining conditional love through deconstructed religious imagery.'
   },
   {
     id: 3,
     title: 'We Forgive You, But...',
     category: 'print',
     price: 45.0,
-    image: 'https://via.placeholder.com/400x500/1a472a/ffffff?text=We+Forgive+You+But',
-    description: 'Exploring the weaponization of forgiveness in religious contexts.'
+    image: 'images/we-forgive-you-but.jpg',    description: 'Exploring the weaponization of forgiveness in religious contexts.'
   },
   {
     id: 4,
     title: 'Holier Than Thou',
     category: 'digital',
     price: 25.0,
-    image: 'https://via.placeholder.com/400x500/0f4c75/ffffff?text=Holier+Than+Thou',
-    description: 'Digital artwork dissecting moral superiority in faith communities.'
+    image: 'images/holier-than-thou.jpg',    description: 'Digital artwork dissecting moral superiority in faith communities.'
   },
   {
     id: 5,
     title: 'Sunday Marquee',
     category: 'print',
     price: 45.0,
-    image: 'https://via.placeholder.com/400x500/c24914/ffffff?text=Sunday+Marquee',
-    description: 'Satirical examination of church marketing and messaging.'
+    image: 'images/sunday-marquee.jpg',    description: 'Satirical examination of church marketing and messaging.'
   }
 ];
 
