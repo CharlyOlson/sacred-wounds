@@ -1,288 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<titleHeretics Wholesome Snake Oil Stand</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="style.css"/>
-    <script src="https://js.stripe.com/v3/"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sacred Wounds - An Interactive Art Gallery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<nav class="nav">
-  <span class="nav-brand">Harlots, Heathens & Heretic Apothecary</span>
-  <div class="nav-links">
-    <a href="#gallery">Gallery</a>
-    <a href="#submit">Submit</a>
-    <a href="#about">About</a>
-      <a href="#store">Store</a>
-          <button class="cart-icon" onclick="openCart()" aria-label="Shopping cart">
-        🛒 <span id="cart-count" class="cart-badge">0</span>
-      </button>
-      <button id="login-btn" class="btn-secondary" onclick="openLoginModal()">Login</button>
-      <div id="user-info" style="display: none;"></div>
-  </div>
-</nav>
-
-<section class="hero">
-  <div class="hero-inner">
-    <p class="eyebrow">Piece III</p>
-    <h1>We Forgive You,<br/><em>But&hellip;</em></h1>
-    <p class="hero-sub">What the church said out loud.<br/>What it meant underneath.</p>
-    <a href="#gallery" class="cta-btn">Enter the Wall</a>
-  </div>
-  <div class="scroll-hint">scroll &darr;</div>
-</section>
-
-<section class="gallery" id="gallery">
-  <div class="section-header">
-    <p class="label">The Confession Wall</p>
-    <h2>Hover or tap each card to reveal what was underneath.</h2>
-  </div>
-    
-      <!-- Gallery Artwork Pieces -->
-      <div class="artworks-grid">
-        <!-- Piece 1: Name It and Claim It -->
-            </div>
-
-    <!-- Confession Wall Cards Grid -->
-      <div class="card-grid" id="cardGrid"></div>
-    <!-- Gallery Artwork Pieces -->
-        <article class="artwork-piece" id="piece-name-it">
-          <div class="artwork-image">
-            <img src="https://via.placeholder.com/800x1000/8b0000/ffffff?text=Name+It+and+Claim+It" alt="Name It and Claim It" />
-          </div>
-          <div class="artwork-info">
-            <span class="artwork-label">Piece I</span>
-            <h3>Name It and Claim It</h3>
-            <p class="artwork-theme">Prosperity Gospel</p>
-            <blockquote>
-              "If you just have enough faith, God will give you everything you desire."
-            </blockquote>
-            <p class="artwork-description">This piece dissects the transactional theology of prosperity gospel—where faith becomes currency and God becomes a cosmic vending machine.</p>
-            <button class="btn-primary" onclick="openProductModal(1)">Purchase Print - $45</button>
-          </div>
-        </article>
-
-        <!-- Piece 2: Love the Sinner -->
-        <article class="artwork-piece" id="piece-love-sinner">
-          <div class="artwork-image">
-            <img src="https://via.placeholder.com/800x1000/4a0e4e/ffffff?text=Love+the+Sinner" alt="Love the Sinner" />
-          </div>
-          <div class="artwork-info">
-            <span class="artwork-label">Piece II</span>
-            <h3>Love the Sinner</h3>
-            <p class="artwork-theme">Conditional Love</p>
-            <blockquote>
-              "We love you, but we can't affirm your lifestyle."
-            </blockquote>
-            <p class="artwork-description">An examination of the phrase 'love the sinner, hate the sin'—and how it weaponizes love as leverage for control.</p>
-            <button class="btn-primary" onclick="openProductModal(2)">Purchase Print - $45</button>
-          </div>
-        </article>
-
-        <!-- Piece 3: We Forgive You, But... -->
-        <article class="artwork-piece" id="piece-forgive">
-          <div class="artwork-image">
-            <img src="https://via.placeholder.com/800x1000/1a472a/ffffff?text=We+Forgive+You+But" alt="We Forgive You, But..." />
-          </div>
-          <div class="artwork-info">
-            <span class="artwork-label">Piece III</span>
-            <h3>We Forgive You, But...</h3>
-            <p class="artwork-theme">Weaponized Forgiveness</p>
-            <blockquote>
-              "We've forgiven you, but there will be consequences."
-            </blockquote>
-            <p class="artwork-description">Forgiveness that comes with conditions isn't forgiveness—it's control disguised as grace.</p>
-            <button class="btn-primary" onclick="openProductModal(3)">Purchase Print - $45</button>
-          </div>
-        </article>
-
-        <!-- Piece 4: Holier Than Thou -->
-        <article class="artwork-piece" id="piece-holier">
-          <div class="artwork-image">
-            <img src="https://via.placeholder.com/800x1000/0f4c75/ffffff?text=Holier+Than+Thou" alt="Holier Than Thou" />
-          </div>
-          <div class="artwork-info">
-            <span class="artwork-label">Piece IV</span>
-            <h3>Holier Than Thou</h3>
-            <p class="artwork-theme">Moral Superiority</p>
-            <blockquote>
-              "You wouldn't understand—you're not spiritual enough."
-            </blockquote>
-            <p class="artwork-description">A digital exploration of religious elitism and the hierarchies built inside sacred spaces.</p>
-            <button class="btn-primary" onclick="openProductModal(4)">Purchase Digital - $25</button>
-          </div>
-        </article>
-
-        <!-- Piece 5: Sunday Marquee -->
-        <article class="artwork-piece" id="piece-marquee">
-          <div class="artwork-image">
-            <img src="https://via.placeholder.com/800x1000/c24914/ffffff?text=Sunday+Marquee" alt="Sunday Marquee" />
-          </div>
-          <div class="artwork-info">
-            <span class="artwork-label">Piece V</span>
-            <h3>Sunday Marquee</h3>
-            <p class="artwork-theme">Church Marketing</p>
-            <blockquote>
-              "Come as you are (but leave changed)."
-            </blockquote>
-            <p class="artwork-description">An analysis of church signage, branding, and the commodification of salvation.</p>
-            <button class="btn-primary" onclick="openProductModal(5)">Purchase Print - $45</button>
-          </div>
-        </article>
-      </div>
-
-  </div>
-  <div class="card-grid" id="cardGrid"></div>
-</section>
-
-<section class="needed" id="needed">
-  <div class="needed-inner">
-      <p class="label">The Plain, Unbiased Truth</p>    <h2>A different kind of confession.</h2>
-    <div class="needed-grid" id="neededGrid"></div>
-  </div>
-</section>
-
-<section class="submit" id="submit">
-  <div class="submit-inner">
-    <p class="label">Add Your Voice</p>
-    <h2>What did they say?<br/>What did you need instead?</h2>
-    <p class="submit-note">Anonymous. No account needed.</p>
-    <form id="submitForm">
-      <div class="fg">
-<h2>Let's freshen up those wounds and figure out, What happened? what was said? Clearly, objectively, Transparently.</h2>        <textarea name="theySaid" rows="3" placeholder="&quot;We forgive you, but there will be consequences.&quot;"></textarea>
-      </div>
-      <div class="fg">
-        <label>What it really meant</label>
-        <textarea name="theyMeant" rows="3" placeholder="We are choosing our reputation over your safety."></textarea>
-      </div>
-      <div class="fg">
-        <label>What you The Plain, Unbiased Truth</label>
-        <textarea name="needed" rows="3" placeholder="&quot;We believe you. We are sorry. You are safe here.&quot;"></textarea>
-      </div>
-      <div class="fg">
-        <label>Category</label>
-        <select name="category">
-          <option value="abuse">Abuse &amp; Cover-Up</option>
-          <option value="exclusion">Exclusion</option>
-          <option value="shame">Shame &amp; Purity</option>
-          <option value="doubt">Doubt &amp; Questions</option>
-          <option value="money">Money &amp; Power</option>
-        </select>
-      </div>
-      <button type="submit" class="submit-btn">Add to the Wall</button>
-    </form>
-    <p class="form-success" id="formSuccess">Your voice has been added. Thank you.</p>
-  </div>
-</section>
-
-<section class="about" id="about">
-  <div class="about-inner">
-    <p class="label">About This Work</p>
-    <h2>This is not an attack on faith.<br/>It is an autopsy of language.</h2>
-    <p>The phrases collected here were spoken inside sanctuaries, written in letters, delivered from pulpits. They were framed as grace. Many caused measurable, lasting harm to the abused, the questioning, the grieving, the different, the poor.</p>
-    <p>This piece does not argue that God does not exist. It argues that words wielded as weapons inside spaces of trust carry a specific and serious weight &mdash; and that naming them clearly is the first act of repair.</p>
-    <blockquote>&#8220;The most dangerous phrases are the ones that sound like love.&#8221;</blockquote>
-  </div>
-</section>
-
-<section class="store" id="store">
-  <div class="store-inner">
-    <p class="label">The Store</p>
-    <h2>Own a piece of the wall.<br/>Art that lives beyond the screen.</h2>
-    <p class="store-sub">Every print ships on archival matte paper. Every purchase helps keep this project free and independent.</p>
-    <div class="store-filters">
-      <button class="store-filter active" data-type="all">All</button>
-      <button class="store-filter" data-type="print">Art Prints</button>
-      <button class="store-filter" data-type="poster">Posters</button>
-      <button class="store-filter" data-type="digital">Digital Download</button>
-      <button class="store-filter" data-type="apparel">Apparel</button>
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="index.html" class="nav-brand">Harlots, Heathens & Heretic Apothecary</a>
+    <div class="nav-links">
+      <a href="gallery.html">Gallery</a>
+      <a href="submit.html">Submit</a>
+      <a href="about.html">About</a>
+      <a href="store.html">Store</a>
     </div>
-      <div class="store-grid" id="store-grid"></div>    <div class="store-modal" id="storeModal">
-      <div class="modal-inner">
-        <button class="modal-close" id="modalClose">&times;</button>
-        <div class="modal-img-wrap"><div class="modal-img" id="modalImg"></div></div>
-        <div class="modal-info">
-          <p class="modal-category" id="modalCat"></p>
-          <h3 class="modal-title" id="modalTitle"></h3>
-          <p class="modal-desc" id="modalDesc"></p>
-          <p class="modal-size" id="modalSize"></p>
-          <p class="modal-price" id="modalPrice"></p>
-          <button class="modal-buy" id="modalBuy">Add to Cart &rarr;</button>
-          <p class="modal-note">Checkout via email &mdash; <a href="mailto:sacredwoundsart@gmail.com">sacredwoundsart@gmail.com</a></p>
-        </div>
-      </div>
-    </div>
-    <div class="cart-bar" id="cartBar">
-      <span id="cartCount">0 items in cart</span>
-      <button class="cart-checkout" id="cartCheckout">Checkout via Email &rarr;</button>
-    </div>
-  </div>
-  
-  <!-- Product Modal -->
-  <div class="modal" id="product-modal">
-    <div class="modal-content">
-      <button class="modal-close" onclick="closeModal('product-modal')">&times;</button>
-      <div class="modal-body"></div>
-    </div>
-  </div>
+  </nav>
 
-  <!-- Cart Modal -->
-  <div class="modal" id="cart-modal">
-    <div class="modal-content">
-      <button class="modal-close" onclick="closeModal('cart-modal')">&times;</button>
-      <h2>Your Cart</h2>
-      <div id="cart-items"></div>
-      <div class="cart-total">
-        <strong>Total: <span id="cart-total">$0.00</span></strong>
-      </div>
-      <button class="btn-primary" onclick="checkout()">Checkout</button>
-    </div>
-  </div>
-
-  <!-- Login Modal -->
-  <div class="modal" id="login-modal">
-    <div class="modal-content">
-      <button class="modal-close" onclick="closeModal('login-modal')">&times;</button>
-      <h2>Sign In</h2>
-      <p>Please sign in to complete your purchase</p>
-      <button class="btn-google" onclick="loginWithGoogle()">
-        <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M17.6 9.2l-.1-1.8H9v3.4h4.8C13.6 12 13 13 12 13.6v2.2h3a8.8 8.8 0 0 0 2.6-6.6z" fill="#4285F4" fill-rule="nonzero"/><path d="M9 18c2.4 0 4.5-.8 6-2.2l-3-2.2a5.4 5.4 0 0 1-8-2.9H1V13a9 9 0 0 0 8 5z" fill="#34A853" fill-rule="nonzero"/><path d="M4 10.7a5.4 5.4 0 0 1 0-3.4V5H1a9 9 0 0 0 0 8l3-2.3z" fill="#FBBC05" fill-rule="nonzero"/><path d="M9 3.6c1.3 0 2.5.4 3.4 1.3L15 2.3A9 9 0 0 0 1 5l3 2.4a5.4 5.4 0 0 1 5-3.7z" fill="#EA4335" fill-rule="nonzero"/></g></svg>
-        Sign in with Google
-      </button>
-    </div>
-  </div>
-</section>
-
-          <!-- Store Section -->
-  <section class="store" id="store">
-    <div class="section-header">
-      <p class="label">The Store</p>
-      <h2>Art that lives beyond the screen</h2>
-    </div>
-
-    <div class="filter-row">
-      <button class="filter active" onclick="filterStore('all')">All</button>
-      <button class="filter" onclick="filterStore('print')">Art Prints</button>
-      <button class="filter" onclick="filterStore('poster')">Posters</button>
-      <button class="filter" onclick="filterStore('digital')">Digital Download</button>
-      <button class="filter" onclick="filterStore('apparel')">Apparel</button>
-    </div>
-
-    <div id="store-grid" class="store-grid">
-      <!-- Products will be rendered here by JavaScript -->
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">Sacred Wounds</p>
+      <h1>The Confession <em>Wall</em></h1>
+      <p class="hero-sub">What the church said out loud.<br>What it meant underneath.</p>
+      <a href="gallery.html" class="cta-btn">Enter the Gallery</a>
     </div>
   </section>
 
-<footer class="footer">
-  <span>Sacred Wounds &copy; 2026</span>
-  <span>Built to bear witness.</span>
-</footer>
-
-<script src="script.js"></script>
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2026 Harlots, Heathens & Heretic Apothecary</p>
+    <p><a href="about.html">About</a> &middot; <a href="submit.html">Submit Your Story</a></p>
+  </footer>
 </body>
-    <!-- Stripe.js (for future payment integration) -->
-  <script src="https://js.stripe.com/v3/"></script>
 </html>
