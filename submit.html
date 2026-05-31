@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submit - Sacred Wounds</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="nav">
+    <a href="index.html" class="nav-brand">Harlots, Heathens & Heretic Apothecary</a>
+    <div class="nav-links">
+      <a href="gallery.html">Gallery</a>
+      <a href="submit.html" class="active">Submit</a>
+      <a href="about.html">About</a>
+      <a href="store.html">Store</a>
+      <button class="cart-icon" onclick="openCart()" aria-label="Shopping cart">
+        🛒 <span id="cart-count" class="cart-badge">0</span>
+      </button>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">Submit</p>
+      <h1>Add Your <em>Voice</em></h1>
+      <p class="hero-sub">What did they say? What did you need instead?</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner" style="max-width:640px;">
+      <p>Anonymous. No account needed.</p>
+      <form id="submitForm">
+        <div class="form-group">
+          <label>What they said</label>
+          <textarea name="theySaid" rows="3" placeholder="\"We forgive you, but there will be consequences.\""></textarea>
+        </div>
+        <div class="form-group">
+          <label>What it really meant</label>
+          <textarea name="whatItMeant" rows="3" placeholder="What you heard underneath the words"></textarea>
+        </div>
+        <div class="form-group">
+          <label>What you needed instead</label>
+          <textarea name="whatYouNeeded" rows="3" placeholder="What you wish they had said"></textarea>
+        </div>
+        <button type="submit" class="btn-primary">Submit</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2026 Harlots, Heathens & Heretic Apothecary</p>
+    <p><a href="about.html">About</a> &middot; <a href="gallery.html">Gallery</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
