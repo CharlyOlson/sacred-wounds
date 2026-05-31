@@ -261,15 +261,21 @@ body {
 }
 
 .flip-card {
-  position: relative;
   height: 300px;
-  overflow: hidden;
+  perspective: 1000px;
+  cursor: pointer;
 }
 
 .flip-card-inner {
   position: relative;
   width: 100%;
   height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
 }
 
 .flip-front,
@@ -281,6 +287,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  backface-visibility: hidden;
 }
 
 .flip-front {
@@ -291,15 +298,7 @@ body {
 
 .flip-back {
   background: var(--bg);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-}
-
-.flip-card:hover .flip-back {
-  opacity: 1;
-  pointer-events: auto;
-.263 {
+  transform: rotateY(180deg);
   background: var(--bg3);
   border: 1px solid var(--border);
   border-left: 3px solid var(--red);
