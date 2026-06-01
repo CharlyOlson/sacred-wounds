@@ -243,7 +243,7 @@ body {
   margin: 1rem 0;
   padding-left: 1rem;
   border-left: 2px solid var(--red);
-}.flip-back   .flip-card-back
+}
 
 .piece-desc {
   font-size: 0.88rem;
@@ -274,11 +274,11 @@ body {
     /* removed for opacity flip */
 }
 
-.flip-card:hover .card-inner {
+.card:hover .card-inner {
     /* opacity flip instead */
 }
 
-.flip-front   .flip-card-front
+.card-front, .card-back {
 .card-back {
   position: absolute;
   width: 100%;
