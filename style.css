@@ -294,7 +294,7 @@ body {
   backface-visibility: hidden;
 }
 
-.card-front {
+.card-front {   opacity: 1;   z-index: 2;
   background: var(--bg2);
      opacity: 1;
      z-index: 1;
@@ -319,7 +319,7 @@ body {
   border-left: 3px solid var(--red);
   
 
-.flip-card:hover .card-front {
+.flip-card:hover .card-front {   opacity: 1;   z-index: 2;
      
    }
 
@@ -621,7 +621,7 @@ body {
 
 
 /* — FLIP CARD CLICK/TAP STATE — */
-.card-inner.flipped .card-front {
+.card-inner.flipped .card-front {   opacity: 1;   z-index: 2;
   opacity: 0;
   z-index: 1;
 }
