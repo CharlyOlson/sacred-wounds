@@ -270,15 +270,15 @@ body {
   position: relative;
   width: 100%;
   height: 100%;
-    /* removed for opacity flip */
-    /* removed for opacity flip */
+    overflow: hidden;
+    overflow: hidden;
 }
 
 .card:hover .card-inner {
     /* opacity flip instead */
 }
 
-.card-front, .card-back {
+.card-front, .card-back {   position: absolute;   top: 0;   left: 0;
 .card-back {
   position: absolute;
   width: 100%;
