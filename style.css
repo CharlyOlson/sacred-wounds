@@ -204,6 +204,17 @@ body {
   color: #fff;
 }
 
+.cta-btn-secondary {
+  border-color: var(--gold);
+  color: var(--gold);
+  margin-left: 1rem;
+}
+
+.cta-btn-secondary:hover {
+  background: var(--gold);
+  color: var(--bg);
+}
+
 /* ── SECTIONS ── */
 .section {
   padding: 6rem 2.5rem;
@@ -235,6 +246,205 @@ body {
   color: var(--muted);
   margin-bottom: 1.25rem;
   max-width: 660px;
+  line-height: 1.8;
+}
+
+/* ── FEATURED GRID (Mockups) ── */
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.feature-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.feature-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-5px);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.feature-card h3 {
+  font-family: var(--fh);
+  font-size: 1.3rem;
+  margin-bottom: 0.75rem;
+  color: var(--text);
+}
+
+.feature-card p {
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+  max-width: 100%;
+}
+
+.feature-link {
+  color: var(--gold);
+  text-decoration: none;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+.feature-link:hover {
+  color: var(--red);
+}
+
+/* ── STEPS GRID ── */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.step {
+  position: relative;
+  padding: 2rem;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--gold);
+}
+
+.step-number {
+  position: absolute;
+  top: -15px;
+  left: 20px;
+  width: 50px;
+  height: 50px;
+  background: var(--red);
+  border: 2px solid var(--bg);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--fh);
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.step h3 {
+  font-family: var(--fh);
+  font-size: 1.2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.step p {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* ── FEATURED QUOTE SECTION ── */
+.featured-quote-section {
+  background: linear-gradient(135deg, var(--bg3) 0%, var(--bg2) 100%);
+  text-align: center;
+}
+
+.featured-quote {
+  font-family: var(--fh);
+  font-size: 2rem;
+  font-style: italic;
+  color: var(--text);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.quote-attribution {
+  color: var(--gold);
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ── CTA SECTION ── */
+.cta-section {
+  text-align: center;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+/* ── ARTIST BIO SECTION ── */
+.artist-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.artist-image {
+  width: 100%;
+  aspect-ratio: 4/5;
+  background: linear-gradient(135deg, var(--bg3) 0%, var(--border) 100%);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  color: var(--muted);
+}
+
+.artist-bio h3 {
+  font-family: var(--fh);
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+}
+
+.artist-tagline {
+  color: var(--gold);
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.artist-bio p {
+  color: var(--muted);
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+.artist-traits {
+  list-style: none;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.artist-traits li {
+  color: var(--text);
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.artist-traits li::before {
+  content: '✦ ';
+  color: var(--red);
+  margin-right: 0.5rem;
 }
 
 /* ── GALLERY GRID ── */
@@ -773,9 +983,25 @@ footer p {
   
   .pieces-grid,
   .card-grid,
-  .store-grid {
+  .store-grid,
+  .featured-grid,
+  .steps-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+  }
+
+  .artist-section {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta-btn-secondary {
+    margin-left: 0;
   }
 
   .modal-content {
@@ -800,6 +1026,10 @@ footer p {
   .card-meaning {
     font-size: 0.85rem;
   }
+
+  .featured-quote {
+    font-size: 1.5rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -816,5 +1046,13 @@ footer p {
   .piece-info,
   .store-card-content {
     padding: 1rem;
+  }
+
+  .featured-quote {
+    font-size: 1.2rem;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
   }
 }
