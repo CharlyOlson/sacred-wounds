@@ -33,6 +33,7 @@ body {
   font-size: 16px;
   line-height: 1.7;
   overflow-x: hidden;
+  padding-bottom: 80px; /* Space for persistent cart */
 }
 
 /* ── NAVIGATION ── */
@@ -77,6 +78,69 @@ body {
 .nav-links a:hover,
 .nav-links a.active {
   color: var(--text);
+}
+
+/* ── PERSISTENT CART BAR ── */
+.cart-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-bar-content {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+
+.cart-bar-btn {
+  padding: 0.75rem 1.5rem;
+  background: var(--red);
+  border: none;
+  color: #fff;
+  font-family: var(--fb);
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: 600;
+}
+
+.cart-bar-btn:hover {
+  opacity: 0.85;
+}
+
+#cart-count-bar {
+  display: inline-block;
+  min-width: 20px;
+  text-align: center;
+  background: var(--gold);
+  color: var(--bg);
+  border-radius: 50%;
+  padding: 0 0.4rem;
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-left: 0.5rem;
+}
+
+.cart-total-bar {
+  font-size: 0.95rem;
+  color: var(--text);
+  font-weight: 600;
 }
 
 /* ── HERO SECTIONS ── */
@@ -176,8 +240,8 @@ body {
 /* ── GALLERY GRID ── */
 .pieces-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 3rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2.5rem;
   margin-top: 3rem;
 }
 
@@ -186,22 +250,31 @@ body {
   border: 1px solid var(--border);
   overflow: hidden;
   transition: transform 0.3s, border-color 0.3s;
+  cursor: pointer;
 }
 
 .piece-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px);
   border-color: var(--gold);
 }
 
 .piece-img {
   width: 100%;
   aspect-ratio: 3/4;
-  background: var(--bg3);
+  background: linear-gradient(135deg, var(--bg3) 0%, var(--bg) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
+  font-size: 3rem;
   color: var(--muted);
+  position: relative;
+  overflow: hidden;
+}
+
+.piece-img::before {
+  content: '✦';
+  position: absolute;
+  opacity: 0.3;
 }
 
 .piece-img img {
@@ -211,7 +284,7 @@ body {
 }
 
 .piece-info {
-  padding: 1.5rem;
+  padding: 1.75rem;
 }
 
 .piece-label {
@@ -219,6 +292,7 @@ body {
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--gold);
+  margin-bottom: 0.5rem;
 }
 
 .piece-info h3 {
@@ -226,6 +300,7 @@ body {
   font-size: 1.3rem;
   font-weight: 400;
   margin: 0.5rem 0;
+  color: var(--text);
 }
 
 .piece-theme {
@@ -261,7 +336,7 @@ body {
 }
 
 .flip-card {
-  height: 300px;
+  height: 320px;
   cursor: pointer;
   perspective: 1000px;
 }
@@ -270,11 +345,12 @@ body {
   position: relative;
   width: 100%;
   height: 100%;
-  transition: transform 0.6s;
+  transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   transform-style: preserve-3d;
 }
 
-.flip-card:hover .flip-card-inner {
+.flip-card:hover .flip-card-inner,
+.flip-card-inner.flipped {
   transform: rotateY(180deg);
 }
 
@@ -288,8 +364,10 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   padding: 2rem;
   border: 1px solid var(--border);
+  text-align: center;
 }
 
 .flip-card-front {
@@ -307,27 +385,29 @@ body {
 
 .card-quote {
   font-family: var(--fh);
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-style: italic;
-  line-height: 1.5;
+  line-height: 1.6;
   color: var(--text);
   text-align: center;
+  margin: 0;
 }
 
 .card-meaning {
   font-size: 0.95rem;
   color: var(--text);
   line-height: 1.6;
-  margin-bottom: 1rem;
+  margin: 0 0 1.25rem 0;
   text-align: center;
 }
 
 .card-needed {
-  font-size: 0.85rem;
-  color: var(--gold);
+  font-size: 0.8rem;
+  color: var(--muted);
   line-height: 1.5;
   border-top: 1px solid var(--border);
   padding-top: 1rem;
+  width: 100%;
 }
 
 .needed-label {
@@ -341,8 +421,9 @@ body {
 
 .card-needed p {
   margin: 0;
-  color: var(--muted);
+  color: var(--text);
   font-style: italic;
+  font-size: 0.85rem;
 }
 
 /* ── STORE ── */
@@ -388,7 +469,7 @@ body {
   margin-bottom: 0.4rem;
 }
 
-.store-card-title {
+.store-card h3 {
   font-family: var(--fh);
   font-size: 1rem;
   font-weight: 400;
@@ -399,12 +480,13 @@ body {
   font-size: 0.9rem;
   color: var(--text);
   font-weight: 500;
+  margin-bottom: 0.5rem;
 }
 
 .store-card-description {
   font-size: 0.85rem;
   color: var(--muted);
-  margin: 0.5rem 0;
+  margin-bottom: 1rem;
 }
 
 /* ── FORMS ── */
@@ -419,13 +501,15 @@ body {
   font-size: 0.8rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--gold);
+  font-weight: 600;
 }
 
 .form-group textarea,
 .form-group select,
 .form-group input[type="text"],
-.form-group input[type="email"] {
+.form-group input[type="email"],
+.form-group input[type="number"] {
   background: var(--bg2);
   border: 1px solid var(--border);
   color: var(--text);
@@ -459,6 +543,7 @@ body {
   text-transform: uppercase;
   cursor: pointer;
   transition: opacity 0.2s;
+  font-weight: 600;
 }
 
 .btn-primary:hover {
@@ -520,6 +605,10 @@ footer a:hover {
   opacity: 0.75;
 }
 
+footer p {
+  margin: 0.5rem 0;
+}
+
 /* ── CART ICON ── */
 .cart-icon {
   background: none;
@@ -554,11 +643,12 @@ footer a:hover {
   position: fixed;
   inset: 0;
   z-index: 200;
-  background: rgba(0, 0, 0, 0.85);
+  background: rgba(0, 0, 0, 0.90);
   backdrop-filter: blur(8px);
   align-items: center;
   justify-content: center;
   padding: 2rem;
+  overflow-y: auto;
 }
 
 .modal.open {
@@ -570,10 +660,10 @@ footer a:hover {
   border: 1px solid var(--border);
   max-width: 600px;
   width: 100%;
-  max-height: 90vh;
+  max-height: 85vh;
   overflow-y: auto;
   position: relative;
-  padding: 2rem;
+  padding: 2.5rem;
 }
 
 .modal-body {
@@ -585,18 +675,26 @@ footer a:hover {
 
 .modal-close {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: 1.5rem;
+  right: 1.5rem;
   background: none;
   border: none;
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: var(--text);
   cursor: pointer;
   line-height: 1;
+  transition: color 0.2s;
 }
 
 .modal-close:hover {
   color: var(--red);
+}
+
+.modal-content h2 {
+  font-family: var(--fh);
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
 }
 
 .cart-item {
@@ -604,13 +702,15 @@ footer a:hover {
   gap: 1rem;
   padding: 1rem;
   border-bottom: 1px solid var(--border);
-  align-items: center;
+  align-items: flex-start;
+  width: 100%;
 }
 
 .cart-item img {
   width: 60px;
   height: 60px;
   object-fit: cover;
+  border: 1px solid var(--border);
 }
 
 .cart-item-details {
@@ -620,21 +720,27 @@ footer a:hover {
 .cart-item-details h4 {
   font-size: 0.9rem;
   margin-bottom: 0.25rem;
+  font-family: var(--fh);
 }
 
 .cart-item-details p {
   font-size: 0.8rem;
   color: var(--muted);
-  margin: 0;
+  margin: 0.25rem 0;
 }
 
 .cart-item-price {
-  font-weight: 500 !important;
-  color: var(--text) !important;
+  font-weight: 600 !important;
+  color: var(--gold) !important;
+  font-size: 0.95rem !important;
 }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
+  body {
+    padding-bottom: 100px;
+  }
+
   .nav {
     padding: 1rem 1.25rem;
   }
@@ -651,11 +757,64 @@ footer a:hover {
   .section {
     padding: 5rem 1.25rem;
   }
+
+  .cart-bar {
+    padding: 0.75rem 1.25rem;
+  }
+
+  .cart-bar-content {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .cart-total-bar {
+    font-size: 0.85rem;
+  }
   
   .pieces-grid,
   .card-grid,
   .store-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+  }
+
+  .modal-content {
+    max-width: 95vw;
+    padding: 1.5rem;
+  }
+
+  .modal-close {
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+  }
+
+  .flip-card {
+    height: 280px;
+  }
+
+  .card-quote {
+    font-size: 1rem;
+  }
+
+  .card-meaning {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cart-bar-btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  .flip-card-front,
+  .flip-card-back {
+    padding: 1.5rem;
+  }
+
+  .piece-info,
+  .store-card-content {
+    padding: 1rem;
   }
 }
